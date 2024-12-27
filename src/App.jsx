@@ -23,12 +23,16 @@ const App = () => {
       <Routes>
         {/* Public route for Login */}
         <Route path="/login" element={<Login />} />
-        
+
         {/* Default route for "/" */}
         <Route
           path="/"
           element={
-            isAuthenticated() ? <Navigate to="/home" /> : <Navigate to="/login" />
+            isAuthenticated() ? (
+              <Navigate to="/home" />
+            ) : (
+              <Navigate to="/login" />
+            )
           }
         />
 
