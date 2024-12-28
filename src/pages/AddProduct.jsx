@@ -24,6 +24,7 @@ const AddProduct = () => {
       const checkResponse = await axios.get(`${api}?name=${values.name}`);
       if (checkResponse.data.length > 0) {
         setError("Product with this name already exists.");
+        setValues({ name: "", price: "" });
         return;
       }
 
@@ -38,37 +39,53 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="container">
-      <h2 className="mt-5 text-primary">ADD PRODUCT DETAILS</h2>
-      <hr />
-      <br />
-      {error && <Alert variant="danger">{error}</Alert>}
-      {message && <Alert variant="success">{message}</Alert>}
-      <Form className="w-50 mx-auto" onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Label className="fs-3">Product Name:</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter product name"
-            value={values.name}
-            onChange={(e) => setValues({ ...values, name: e.target.value })}
-          />
-        </Form.Group>
+    <div
+      className="d-flex justify-content-center align-items-center w-100% vh-100"
+      style={{ backgroundColor: "#f4f4f9" }}
+    >
+      <div
+        className="p-5 border rounded bg-white shadow-lg"
+        style={{ width: "100%", maxWidth: "700px" }}
+      >
+        <h2 className="mb-4 text-center text-primary">Add Product Details</h2>
+        <hr />
+        {error && <Alert variant="danger">{error}</Alert>}
+        {message && <Alert variant="success">{message}</Alert>}
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-4" controlId="formBasicName">
+            <Form.Label className="fs-5 fw-bold">Product Name:</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter product name"
+              value={values.name}
+              onChange={(e) => setValues({ ...values, name: e.target.value })}
+              className="p-3"
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPrice">
-          <Form.Label className="fs-3">Price:</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="3000"
-            value={values.price}
-            onChange={(e) => setValues({ ...values, price: e.target.value })}
-          />
-        </Form.Group>
+          <Form.Group className="mb-4" controlId="formBasicPrice">
+            <Form.Label className="fs-5 fw-bold">Price:</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter product price"
+              value={values.price}
+              onChange={(e) => setValues({ ...values, price: e.target.value })}
+              className="p-3"
+            />
+          </Form.Group>
 
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
+          <div className="text-center">
+            <Button
+              variant="primary"
+              type="submit"
+              className="px-5 py-2 fs-5"
+              style={{ width: "100%" }}
+            >
+              Submit
+            </Button>
+          </div>
+        </Form>
+      </div>
     </div>
   );
 };

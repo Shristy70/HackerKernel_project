@@ -9,6 +9,26 @@
       "id": "26f3",
       "name": "jacket",
       "price": "322"
+    },
+    {
+      "id": "47eb",
+      "name": "shirt",
+      "price": "322"
+    },
+    {
+      "id": "16c3",
+      "name": "jeans",
+      "price": "322"
+    },
+    {
+      "id": "0469",
+      "name": "suit",
+      "price": "38888"
+    },
+    {
+      "id": "9268",
+      "name": "saree",
+      "price": "2000"
     }
   ]
 }

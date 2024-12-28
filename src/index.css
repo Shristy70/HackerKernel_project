@@ -1,0 +1,8 @@
+.sidebar-link:hover {
+  background-color: rgba(1, 23, 48, 0.099); 
+  text-decoration: none; 
+border: 2px solid white;
+}
+.hover-bg-light:hover {
+  background-color: rgba(255, 255, 255, 0.121); 
+}
